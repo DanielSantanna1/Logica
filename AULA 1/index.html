@@ -89,7 +89,7 @@
         for(let i = 0; i <= frutas.length; i++) {
             console.log(frutas[i]);
         }
-        */
+        
        //Contar quantos números são maiores que 10 no array
         let numeros = ["3", "18", "7", "12", "25", "1"]
         for(let i = 0; i <= numeros.length; i++){
@@ -97,8 +97,73 @@
             console.log(numeros[i]);
 
        }
+        
+       let mes = parseInt(prompt("Digite o número do mês:"))
+       switch(mes){
+            case 12:
+            case 1:
+            case 2:
+                console.log("É um mês de verão")
+            break
+            case 3:
+            case 4:
+            case 5:
+                console.log("É um mês outono")
+            break;
+            case 6:
+            case 7:
+            case 8:
+                console.log("É um mês de Inverno!")
+            break;
+            case 9:
+            case 10:
+            case 11:
+                console.log("É um mês de Primavera!")
+            break;
+        default:
+            console.log("DIGITE DE 1 A 12!!!")
+       }
+       
+       let lado1 = parseInt(prompt("Digite o tamnho do lado 1"))
+       let lado2 = parseInt(prompt("Digite o tamnho do lado 2"))
+       let lado3 = parseInt(prompt("Digite o tamnho do lado 3"))  
+
+
+        switch(true){
+            case (lado1 === lado2 && lado2 === lado3):
+                window.alert("Triângulo Equilátero")
+                break
+
+            case (lado1 === lado2 && lado2 === lado3 && lado1 === lado3):
+                window.alert("Triângulo Isósceles")
+                break
+
+            case (lado1 != lado2 && lado2 != lado3 && lado1 != lado3):
+                window.alert("Triângulo Escaleno")
+                break
+
+            default:
+                window.alert("Digite apenas números")
+                
             
-    }
+            }
+            */
+
+            //classiificação de temperatura
+            let temperatura = prompt("Digite a temperatura: ");
+                switch(true){
+                    case (temperatura < 15):
+                        window.alert("Frio")
+                        break
+                    case (temperatura >= 15 && temperatura <= 25):
+                        window.alert("Ameno")
+                        break
+                    case (temperatura > 25):
+                        window.alert("Quente")
+                        break
+                default:
+                    window.alert("Temperatura inválida")
+                }   
 
 
             

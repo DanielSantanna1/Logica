@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+
+<body>
+
+    <script>
+        /*
+        let notas = [10, 8, 7, 9, 6, 5, 4, 3, 2, 1];
+        let i = 0
+        let soma = 0;
+
+        while (i < notas.length) {
+            soma += notas[i];
+            i++;
+        }
+
+        let media = soma / notas.length;
+
+        if (media >= 7){
+            window.alert("Aprovado com média: " + media);
+        } else if (media >= 5 && media < 7) {
+            window.alert("Recuperação com média: " + media);
+        } else {
+            window.alert("Reprovado com média: " + media);
+        }
+        
+        // Exercicios do While
+        // 1. Faça uma contagem regressiva de 100 a 1;
+
+        let i = 100;
+        while (i >= 1) {
+            document.getElementById(i);
+            i--;
+        }
+        
+
+        // 2. Faça um sistema pra somar todos os números digitados pelo usuário até que ele digite 0.
+        let numeros = parseInt(prompt("Digite um número: "));
+        let soma = 0;
+        while (numeros != 0) {
+            soma += numeros;
+            numeros = parseInt(prompt("Digite um número: "));
+        }
+        window.alert("A soma dos números é: " + soma);
+        
+
+        // 3. Peça para o usuário digitar a senha,valide a senha até o usuário acertar, dê um aviso de senha incorreta.
+        
+        let senha = prompt("Digite a senha: ");
+        let senhaCorreta = "123456";
+        while (senha != senhaCorreta) {
+            senha = prompt("Senha incorreta! Tente novamente: ");
+            
+        }
+        while (senha === senhaCorreta) {
+            window.alert("Senha correta! Acesso permitido.");
+            break;
+        }
+        */
+
+        //4. Adivinhe o número
+        
+        let palpite = parseInt(prompt("Escolha um número: "));
+        let numeroCorreto = 7;
+        let i = 5;
+        while (palpite != numeroCorreto){
+            i--;
+            window.alert("Você tem: " + i +" tentativas!");
+            palpite = parseInt(prompt("Número incorreto! Digite Novamente:"));  
+
+        }
+        while (palpite === numeroCorreto) {
+            window.alert("Parabéns!!");
+            break;
+        }
+
+
+
+
+
+
+
+
+    </script>
+    
+</body>
+</html>
