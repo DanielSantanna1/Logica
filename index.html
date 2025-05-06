@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // Divisão de conta entre amigos
+        function dividirConta() {
+            let valorRefeicao = parseFloat(prompt("Digite o valor da refeição:"));
+            let numeroAmigos = parseInt(prompt("Digite o número de amigos:"));
+            let valorPorPessoa = valorRefeicao / numeroAmigos;
+
+            alert("Cada pessoa deve pagar: R$ " + valorPorPessoa.toFixed(2));
+        }
+        console.log("Divisão de conta entre amigos: " + dividirConta());
+        
+    </script>
+    
+</body>
+</html>
