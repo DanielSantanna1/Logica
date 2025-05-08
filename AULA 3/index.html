@@ -4,57 +4,20 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #f4f4f4;
-            margin: 0;
-            padding: 20px;
-        }
-        header {
-            background-color: #333;
-            color: white;
-            padding: 10px 0;
-            text-align: center;
-        }
-        h1 {
-            margin: 0;
-        }
-        p {
-            margin: 5px 0;
-        }
-        input[type="number"] {
-            width: 100%;
-            padding: 10px;
-            margin: 10px 0;
-            border: 1px solid #ccc;
-            border-radius: 4px;
-        }
-    </style>
 </head>
 <body>
-    <header>
-        <h1>Calculadora de Conta do Restaurante</h1>
-        <p>Calcule o valor total da sua refeição, incluindo 10% de gorjeta.</p>
-        <p>Digite o valor da refeição e clique em "Calcular".</p>
-        <input type="number" id="valorRefeicao" placeholder="Valor da Refeição" required>
-        <button onclick="calcularConta()">Calcular</button>
-        <p id="resultado"></p>
-        <script>
-            function calcularConta() {
-                var valorRefeicao = parseFloat(document.getElementById("valorRefeicao").value);
-                if (isNaN(valorRefeicao) || valorRefeicao <= 0) {
-                    document.getElementById("resultado").innerText = "Por favor, insira um valor válido.";
-                    return;
-                }
-                var gorjeta = valorRefeicao * 0.10;
-                var total = valorRefeicao + gorjeta;
-                document.getElementById("resultado").innerText = "Valor Total: R$ " + total.toFixed(2) + " (incluindo R$ " + gorjeta.toFixed(2) + " de gorjeta)";
-            }
-        </script>
-    </header>
+    <script>
+        // Divisão de conta entre amigos
+        function dividirConta() {
+            let valorRefeicao = parseFloat(prompt("Digite o valor da refeição:"));
+            let numeroAmigos = parseInt(prompt("Digite o número de amigos:"));
+            let valorPorPessoa = valorRefeicao / numeroAmigos;
 
-
+            alert("Cada pessoa deve pagar: R$ " + valorPorPessoa.toFixed(2));
+        }
+        console.log("Divisão de conta entre amigos: " + dividirConta());
+        
+    </script>
     
 </body>
 </html>

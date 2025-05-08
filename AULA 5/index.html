@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            text-align: center;
+            padding: 20px;
+        }
+        
+        h1 {
+            color: #333;
+        }
+
+        #produto {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+            display: inline-block;
+            margin: 20px auto;
+        }
+
+        label {
+            font-size: 18px;
+            font-weight: bold;
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        select {
+            padding: 10px;
+            font-size: 16px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+
+        .preco {
+            font-size: 20px;
+            font-weight: bold;
+            color: #d9534f;
+            margin-top: 15px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Mochila</h1>
+    <div id="produto">
+        <label for="cor">Selecione a cor do produto</label>
+        <select id="cor" onchange="atualizarPreco()">
+            <option value="Preta">Preta</option>
+            <option value="Azul">Azul</option>
+            <option value="Cinza">Cinza</option>
+            <option value="Vermelho">Vermelho</option>
+        </select>
+    </div>
+
+    <div class="preco" id="preco">Preço: R$ 149.90</div>
+
+    <script>
+        const precos = {
+            Preta: 149.90,
+            Vermelho: 159.90,
+            Azul: 154.90,
+            Cinza: 144.90
+        };
+
+        function atualizarPreco() {
+            const cor = document.getElementById('cor').value;
+            const preco = precos[cor];
+            document.getElementById('preco').textContent = `Preço: R$ ${preco.toFixed(2)}`;
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Loja de Motocicletas</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            text-align: center;
+            padding: 20px;
+        }
+        
+        h1 {
+            color: #333;
+        }
+
+        #produto {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+            display: inline-block;
+            margin: 20px auto;
+        }
+
+        label {
+            font-size: 18px;
+            font-weight: bold;
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        select {
+            padding: 10px;
+            font-size: 16px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+
+        .preco {
+            font-size: 20px;
+            font-weight: bold;
+            color: #d9534f;
+            margin-top: 15px;
+        }
+
+        .imagem-moto {
+            width: 100%;
+            max-width: 300px;
+            margin-top: 15px;
+            border-radius: 10px;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+        }
+    </style>
+</head>
+<body>
+    <h1>Motocicletas</h1>
+    <div id="produto">
+        <label for="moto">Selecione o modelo:</label>
+        <select id="moto" onchange="atualizarPrecoImagem()">
+            <option value="Yamaha MT-07">Yamaha MT-07</option>
+            <option value="Honda CB 500X">Honda CB 500X</option>
+            <option value="Kawasaki Ninja 400">Kawasaki Ninja 400</option>
+            <option value="Ducati Panigale V4">Ducati Panigale V4</option>
+        </select>
+        <div class="preco" id="preco">Preço: R$ 45,000.00</div>
+        <img id="imagem-moto" class="imagem-moto" src="https://via.placeholder.com/300" alt="Imagem da Moto">
+    </div>
+
+    <script>
+        const motos = {
+            "Yamaha MT-07": {
+                preco: 45000.00,
+                imagem: "https://th.bing.com/th/id/R.4eb0d9a10eb0feaf3e0cf798e541ed2e?rik=W5cCc6qUM3ws1Q&pid=ImgRaw&r=0"
+            },
+            "Honda CB 500X": {
+                preco: 39000.00,
+                imagem: "https://th.bing.com/th/id/R.5601622945d0df419f6d079cb388ba37?rik=61xztUb7mXv0LQ&riu=http%3a%2f%2fgearopen.com%2fwp-content%2fuploads%2f2018%2f11%2f2019-Honda-CB500X-First-Look-adventure-motorcycle-3.jpg&ehk=8P7c2jg%2fa%2bf2Hk2miwj7SAJFCx%2bi0sCZM4Mscxh1xts%3d&risl=&pid=ImgRaw&r=0"
+            },
+            "Kawasaki Ninja 400": {
+                preco: 38000.00,
+                imagem: "https://tse3.mm.bing.net/th/id/OIP.R5r15L0WroBZCbiUQpwjygHaFL?cb=iwc1&rs=1&pid=ImgDetMain"
+            },
+            "Ducati Panigale V4": {
+                preco: 129000.00,
+                imagem: "https://tse3.mm.bing.net/th/id/OIP.l8cKb0F7S0G76p_L-SdtxAHaE7?cb=iwc1&rs=1&pid=ImgDetMain"
+            }
+        };
+
+        function atualizarPrecoImagem() {
+            const motoSelecionada = document.getElementById('moto').value;
+            const moto = motos[motoSelecionada];
+
+            document.getElementById('preco').textContent = `Preço: R$ ${moto.preco.toFixed(2)}`;
+            document.getElementById('imagem-moto').src = moto.imagem;
+            document.getElementById('imagem-moto').alt = `Imagem da ${motoSelecionada}`;
+        }
+    </script>
+</body>
+</html>
