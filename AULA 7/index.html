@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title> 
+</head>
+<body>
+    
+    <p id="quantidadeCarinho">Quantidade de itens no carrinho: 0</p>
+    <p id="produtos"></p>
+    
+    <input type="text" id="product" placeholder="Digite o Nome do Produto">
+    <button onclick="adicionarProduto()">Adicionar Produto</button>
+    <button onclick="adicionarItem()">Adicionar Itens</button>
+    <button onclick="removerItem()">Remover Itens</button>
+    <button onclick="removerTudo()">Remover todos</button>
+
+    <script>
+        let quantidade = 0;
+        let listaProdutos = [];
+        
+        function adicionarItem() {
+            quantidade += 1;
+            let carrinho = document.getElementById("quantidadeCarinho");
+            carrinho.textContent = "Quantidade de itens no carrinho: " + quantidade;
+        }
+
+        function removerItem() {
+            if (quantidade <= 0) {
+                alert("Não há itens no carrinho para remover.");
+                return;
+            }
+            quantidade -= 1;
+            let carrinho = document.getElementById("quantidadeCarinho");
+            carrinho.textContent = "Quantidade de itens no carrinho: " + quantidade;
+        }
+
+        function removerTudo() {
+            quantidade = 0;
+            listaProdutos = []; 
+            let carrinho = document.getElementById("quantidadeCarinho");
+            carrinho.textContent = "Quantidade de itens no carrinho: " + quantidade;
+            let produtos = document.getElementById("produtos");
+            produtos.textContent = ""; 
+        }
+
+        function adicionarProduto() {
+            let nomeProduto = document.getElementById("product").value;
+            if (nomeProduto) {
+                listaProdutos.push(nomeProduto);  
+                let produtos = document.getElementById("produtos");
+                produtos.textContent = "Produtos no carrinho: " + listaProdutos.join(", "); 
+                document.getElementById("product").value = ""; 
+            } else {
+                alert("Por favor, insira o nome do produto.");
+            }
+        }
+    </script>
+</body>
+</html>
