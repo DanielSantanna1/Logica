@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h2>Digite o seu nome</h2>
+    <input type="text" id="campoNome">
+    <p id="dica"></p>
+    <p id="digitando"></p>
+
+    <script>
+        let campoNome = document.getElementById("campoNome");
+        let dica = document.getElementById("dica");
+        let digitando = document.getElementById("digitando");
+        
+        campoNome.addEventListener("focus", function() {
+            dica.innerHTML = "Digite seu nome";
+        });
+        
+        campoNome.addEventListener("input", function() {
+            digitando.innerHTML = "Digitando: " + campoNome.value;
+        });
+    </script>
+    
+</body>
+</html>

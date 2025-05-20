@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+ 
+</head>
+<body>
+    <button id="button">Enviar</button>
+    <p id="mensagemUm"></p>
+    <p id="mensagemDois"></p>
+    
+
+    <script>
+        let botao = document.getElementById("button");
+        let mensagemUm = document.getElementById("mensagemUm");
+        let mensagemDois = document.getElementById("mensagemDois");
+        let body = document.body;
+        botao.addEventListener("click", function(event) {
+            body.style.backgroundColor = "black";
+        
+            
+        });
+
+        botao.addEventListener("dblclick", function(event) {
+            body.style.backgroundColor = "green";
+           
+            
+        });
+        botao.addEventListener("mousedown", function(event) {
+            body.style.backgroundColor = "red";
+            
+        });
+
+    </script>
+</body>
+</html>

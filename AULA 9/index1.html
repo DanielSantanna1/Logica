@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            text-align: center;
+            padding: 20px;
+        }
+        h1 {
+            color: #333;
+        }
+        .container {
+            width: 300px;
+            margin: 0 auto;
+            background: rgb(0, 191, 255);
+            text-align: center;
+            display: flex;
+            align-items: center;
+            animation: mudarCor 5s infinite;
+        }
+        @keyframes mudarCor {
+            0% {background-color: red;}
+            25% {background-color: blue;}
+            50% {background-color: green;}
+            75% {background-color: yellow;}
+            100% {background-color: red;}
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+    <p id="meuTexto">Clique para aumentar o tamanho do texto</p>
+    </div>
+    <button onclick="aumentarTexto()">Aumentar texto</button>
+    <button onclick="diminuirTexo()">Diminuir Texto</button>
+    
+    <script>
+
+
+        function aumentarTexto() {
+            let texto = document.getElementById('meuTexto');
+            let tamanhoAtual = window.getComputedStyle(texto, null).getPropertyValue('font-size');
+            let novoTamanho = parseFloat(tamanhoAtual) +2;
+            texto.style.fontSize = novoTamanho + 'px';
+
+
+            }
+
+        function diminuirTexo() {
+            let texto = document.getElementById('meuTexto');
+            let tamanhoAtual = window.getComputedStyle(texto, null).getPropertyValue('font-size');
+            let novoTamanho = parseFloat(tamanhoAtual) -2;
+            texto.style.fontSize = novoTamanho + 'px';
+        }
+    </script>
+</body>
+</html>
