@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+
+    </style>
+</head>
+<body>
+    <div>
+        <h1>Tempo pra Largar <span id="contador"></span></h1>
+        <input type="text" id="input" placeholder="Digite algo aqui">
+        <button onclick="start()">Iniciar Timer</button>
+        <h2>Tempo restante</h2>
+    </div>
+
+    <script>
+        let box = document.getElementById("box");
+        let contador = document.getElementById("contador");
+        let input = document.getElementById("input");
+        let timer;
+
+        function start() {
+            let tempo = parseInt(input.value);
+            if (isNaN(tempo) || tempo <= 0) {
+                alert("Por favor, insira um número válido.");
+                return;
+            }
+
+            clearInterval(timer);
+            box.style.left = "0px";
+            contador.textContent = tempo;
+
+            timer = setInterval(() => {
+                tempo--;
+                contador.textContent = tempo;
+                box.style.left = (parseInt(box.style.left) + 10) + "px";
+
+                if (tempo <= 0) {
+                    clearInterval(timer);
+                    alert("Tempo esgotado!");
+                }
+            }, 1000);
+        }
+    </script>
+</body>
+</html>
