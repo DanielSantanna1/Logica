@@ -10,40 +10,29 @@
 </head>
 <body>
     <div>
-        <h1>Tempo pra Largar <span id="contador"></span></h1>
-        <input type="text" id="input" placeholder="Digite algo aqui">
-        <button onclick="start()">Iniciar Timer</button>
-        <h2>Tempo restante</h2>
+        <h1>Tempo pra Largar </h1>
+        <input type="number" id="tempo" placeholder="Digite algo aqui">
+        <button id="Iniciar">Iniciar Timer</button>
+        <h3>Tempo restante <span id="contador">0</span></h3>
     </div>
 
     <script>
-        let box = document.getElementById("box");
-        let contador = document.getElementById("contador");
-        let input = document.getElementById("input");
-        let timer;
+        document.getElementById("Iniciar").addEventListener('click', function(){
+            let tempo = document.getElementById("tempo").value
+            let contador = tempo;
 
-        function start() {
-            let tempo = parseInt(input.value);
-            if (isNaN(tempo) || tempo <= 0) {
-                alert("Por favor, insira um número válido.");
-                return;
-            }
-
-            clearInterval(timer);
-            box.style.left = "0px";
-            contador.textContent = tempo;
-
-            timer = setInterval(() => {
-                tempo--;
-                contador.textContent = tempo;
-                box.style.left = (parseInt(box.style.left) + 10) + "px";
-
-                if (tempo <= 0) {
-                    clearInterval(timer);
+            let intervalo = setInterval(() => {
+                if (contador > 0) {
+                    document.getElementById("contador").textContent = contador;
+                    contador--;
+                } else {
+                    clearInterval(intervalo);
                     alert("Tempo esgotado!");
                 }
             }, 1000);
-        }
+
+        })
+
     </script>
 </body>
 </html>
