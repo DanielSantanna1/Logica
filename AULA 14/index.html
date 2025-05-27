@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Lembrete</h1>
+    <button id="botao">Compromisso</button>
+    <h1 id="timer">Tempo restante <span id="contador">0</span></h1>
+    <h3 id="mensagem"></h3>
+
+    <script>
+        document.getElementById('timer')
+        document.getElementById('botao').addEventListener('click',() =>{
+            setTimeout(()=>{
+                document.getElementById('mensagem').textContent = "Não se esqueça da reunião!!"
+            },5000)
+        })
+    </script>
+</body>
+</html>
