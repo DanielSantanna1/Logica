@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jogo de Digitação</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <h1>Jogo de Digitação</h1>
+    <p>Digite o mais rápido possível</p>
+
+    <p id="texto">Se olharmos a vida em seus pequenos detalhes, tudo parece bem ridículo. É como uma gota d'água vista num microscópio, uma só gota cheia de protozoários. Achamos muita graça como eles se agitam e lutam tanto entre si. Aqui, no curto período da vida humana, essa atividade febril produz um efeito cômico.</p>
+
+    <input type="text" id="campoTexto" placeholder="Digite o texto aqui">
+
+    <p id="resultado"></p>
+
+    <p>Tempo: <span id="contador">0</span> segundos</p>
+
+    <button id="iniciar">Iniciar o jogo</button>
+
+    <script>
+        const textoOriginal = document.getElementById('texto').textContent;
+        const campoTexto = document.getElementById('campoTexto');
+        const resultado = document.getElementById('resultado');
+        const contador = document.getElementById('contador');
+        const iniciarButton = document.getElementById('iniciar');
+
+        let tempoIniciado = false;
+        let tempo = 0;
+        let intervalo;
+
+        function iniciarTempo() {
+            tempoIniciado = true;
+            intervalo = setInterval(function () {
+                tempo++;
+                contador.textContent = tempo;
+            }, 1000);
+        }
+
+        campoTexto.addEventListener('input', function () {
+            if (!tempoIniciado) {
+                iniciarTempo();
+            }
+
+            if (campoTexto.value === textoOriginal) {
+                clearInterval(intervalo);
+                resultado.textContent = `Parabéns! Você digitou o texto em ${tempo} segundos.`;
+                campoTexto.disabled = true;
+            }
+        });
+
+        iniciarButton.addEventListener('click', function () {
+            campoTexto.value = '';
+            campoTexto.disabled = false;
+            campoTexto.focus();
+            resultado.textContent = '';
+            tempo = 0;
+            contador.textContent = tempo;
+            tempoIniciado = false;
+            clearInterval(intervalo);
+        });
+    </script>
+</body>
+</html>
