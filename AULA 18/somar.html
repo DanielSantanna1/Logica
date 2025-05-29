@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+        <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            color: #333;
+            padding: 20px;
+        }
+        h1 {
+            color: #2c3e50;
+        }
+        input, button {
+            padding: 10px;
+            margin: 5px 0;
+        }
+        button {
+            background-color: #2980b9;
+            color: rgb(255, 255, 255);
+            border: none;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #26c412;
+        }
+        #box {
+            display: flex;
+            flex-direction: column;
+            background-color: #fff;
+            border-radius: 5px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            max-width: 400px;
+            margin: 0 auto;
+            text-align: center;
+        }
+        </style>
+</head>
+<body>
+    <div>
+        <h1>Somar até Digitar 0</h1>
+        <input type="text" id="numero" placeholder="Digite um número">
+        <button id="btnSomar">Somar</button>
+        <p id="resultadoSomar"></p>
+    </div>
+
+    <script>
+        const btnSomar = document.getElementById('btnSomar');
+        const resultadoSomar = document.getElementById('resultadoSomar');
+
+        let soma = 0;
+
+        btnSomar.addEventListener('click', () => {
+            const numero = parseInt(document.getElementById('numero').value);
+
+            if (isNaN(numero)) {
+                resultadoSomar.textContent = 'Por favor, digite um número válido.';
+                return;
+            }
+
+            if (numero === 0) {
+                resultadoSomar.textContent = `A soma total é: ${soma}`;
+                soma = 0; 
+            } else {
+                soma += numero;
+                resultadoSomar.textContent = `Soma atual: ${soma}`;
+            }
+        });
+    </script>
+    
+</body>
+</html>
